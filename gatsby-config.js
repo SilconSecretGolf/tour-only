@@ -36,14 +36,16 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful Starter",
-    description: "Official Contentful Gatsby Starter",
+    title: "Secret Golf - Tour Only",
+    description: "Secret Golf Tour Only Site",
   },
-  pathPrefix: "/gatsby-contentful-starter",
+  pathPrefix: "/tour-only",
   plugins: [
     "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",
     {

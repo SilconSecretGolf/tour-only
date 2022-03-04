@@ -1,16 +1,22 @@
 import React from 'react'
 
-import Container from './container'
-import * as styles from './footer.module.css'
+import { useSiteInfo } from '../hooks/use-site-info'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import {Container, Row, Col} from 'react-bootstrap'
 
-const Footer = () => (
-  <Container as="footer">
-    <div className={styles.container}>
-      Built with <a href="https://contentful.com/">Contentful</a> and{' '}
-      <a href="https://gatsbyjs.com">Gatsby</a> &middot;{' '}
-      <a href="https://github.com/contentful/starter-gatsby-blog">Source</a>
-    </div>
-  </Container>
-)
-
-export default Footer
+export default function Footer() {
+  const siteInfo = useSiteInfo()
+  return <footer className="p-2">
+    <Container>
+      <Row>&nbsp;</Row>
+      <Row style={{ height: "1em" }}></Row>
+      <Row>
+        <Col sm={{span: 12}}>
+          <a href="https://www.secretgolf.com">
+            <GatsbyImage className="img-fluid m-auto d-block mt-1 mb-1" alt={siteInfo.title} image={siteInfo.footerLogo.gatsbyImageData}/>
+          </a>
+        </Col>
+      </Row>
+    </Container>
+    </footer>
+}

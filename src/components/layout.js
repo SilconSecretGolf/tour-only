@@ -1,10 +1,9 @@
 import React from 'react'
 
-import './variables.css'
-import './global.css'
 import Seo from './seo'
-import Navigation from './navigation'
 import Footer from './footer'
+import { Helmet } from 'react-helmet'
+
 class Template extends React.Component {
   render() {
     const { children } = this.props
@@ -12,9 +11,11 @@ class Template extends React.Component {
     return (
       <>
         <Seo />
-        <Navigation />
         <main>{children}</main>
         <Footer />
+        <Helmet>
+          <script src="https://players.brightcove.net/6057949417001/oSZ08U60i_default/index.min.js"/>
+        </Helmet>
       </>
     )
   }
