@@ -13,7 +13,7 @@ export default function Footer() {
       <Row>
         <Col sm={{span: 12}}>
           <a href="https://www.secretgolf.com">
-            <GatsbyImage className="img-fluid m-auto d-block mt-1 mb-1" alt={siteInfo.title} image={siteInfo.footerLogo.gatsbyImageData}/>
+            <img className="img-fluid m-auto d-block mt-1 mb-1" alt={siteInfo.title} src={siteInfo.footerLogo.file.url}/>
           </a>
         </Col>
       </Row>

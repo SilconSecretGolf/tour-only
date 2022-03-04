@@ -10,9 +10,9 @@ export const useSiteInfo = () => {
             footerText  
             footerLogo {
                 title
+                file { url }
                 gatsbyImageData(
-                    layout: CONSTRAINED
-                    width: 348
+                    layout: FULL_WIDTH
                     placeholder: TRACED_SVG
                 )
             }  

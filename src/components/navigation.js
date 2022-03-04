@@ -8,7 +8,7 @@ const Navigation = ({channel}) => {
   var navBody = <span>TOUR <span className={"mob_hidden"}>GOLF</span> WEEKLY
     <span className="desc">Exclusive content from inside the LPGA and PGA Tours</span></span>
 
-  if (channel !== undefined) {
+  if (false && channel !== undefined) {
     navBody = ""
     var header = channel.header
     if (header.backgroundColor1 && header.backgroundColor2) {

@@ -5,6 +5,7 @@ import get from 'lodash/get'
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Navigation from '../components/navigation'
+import { GetChannelAsset } from '../components/channel-asset'
 
 import { Row, Col, Container } from 'react-bootstrap'
 
@@ -27,17 +28,8 @@ class ChannelTemplate extends React.Component {
             </Col>
           </Row>
           <Row>
-          {channel.videos.map(video => {
-            return <Col sm={{span: 12}} md={{span: 6}} className="mb-4">
-                <div className="ratio ratio-16x9">
-                  <video-js data-account="6057949417001" data-player="oSZ08U60i"
-                            data-embed="default" controls="" data-video-id={video.videoId} data-playlist-id=""
-                            data-application-id="" className="vjs-fluid"/>
-                </div>
-                <p className="mt-3"><b>{video.title}</b>
-                  <div className="display-inline" dangerouslySetInnerHTML={{ __html: video.description.childMarkdownRemark.html }}/>
-                </p>
-            </Col>
+          {channel.videos.map(asset => {
+            return GetChannelAsset(asset)
           })}
           </Row>
           <Row>
@@ -70,13 +62,39 @@ export const channelFragment = graphql `
           )
       }
       videos {
-        title
-        videoId
-        description {
-            childMarkdownRemark {
-                html
-            }
-        }
+          __typename
+          ... on ContentfulVideo {
+              videoId
+              title
+              description {
+                  childMarkdownRemark {
+                      html
+                  }
+              }
+          }
+          ... on ContentfulImage {
+              title
+              description {
+                  childMarkdownRemark {
+                      html
+                  }
+              }
+              image {
+                  contentful_id
+                  gatsbyImageData (layout: CONSTRAINED)
+                  file { url }
+              }
+          }
+          
+          ... on ContentfulPodcast {
+              title
+              description {
+                  childMarkdownRemark {
+                      html
+                  }
+              }
+              spotifyId
+          }
       }
       header {
           title
