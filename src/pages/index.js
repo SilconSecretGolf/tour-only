@@ -25,12 +25,12 @@ class RootIndex extends React.Component {
                   <Row>
                   {channels.map((channel) => {
                     return <Col sm={12} md={6} className="mb-4">
-                        <div className="ratio ratio-16x9">
+                      <a href={channel.slug}><div className="ratio ratio-16x9">
                           <GatsbyImage alt={channel.title} image={getImage(channel.listImageFull)}/>
-                        </div>
-                        <p className="mt-3"><b>{ channel.title }</b> {channel.description && channel.description.childMarkdownRemark &&
+                      </div></a>
+                      <a href={channel.slug} className="link-dark"><p className="mt-3"><b>{ channel.title }</b> {channel.description && channel.description.childMarkdownRemark &&
                           <div className="display-inline" dangerouslySetInnerHTML={{ __html: channel.description.childMarkdownRemark.html }}/>}
-                          <a href={channel.slug} className="link-dark"><b>View Videos</b></a></p>
+                          </p></a>
                       </Col>
                 })}
                   </Row>
