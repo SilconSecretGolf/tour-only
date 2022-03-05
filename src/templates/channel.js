@@ -96,23 +96,6 @@ export const channelFragment = graphql `
               spotifyId
           }
       }
-      header {
-          title
-          backgroundColor1
-          backgroundColor2
-          image {
-              title
-              file {
-                  url
-              }
-          }
-          backgroundImage {
-              title
-              file {
-                  url
-              }
-          }
-      }
   }
 `
 export const pageQuery = graphql`

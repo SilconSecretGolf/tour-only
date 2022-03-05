@@ -1,4 +1,6 @@
 import React from 'react'
+import "bootstrap/dist/js/bootstrap.min.js"
+import "../styles/style.scss"
 
 import Seo from './seo'
 import Footer from './footer'
