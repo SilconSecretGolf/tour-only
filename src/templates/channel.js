@@ -114,6 +114,22 @@ export const channelFragment = graphql `
               }
               spotifyId
           }
+          
+          ... on ContentfulChannel {
+              title
+              slug
+              description {
+                  childMarkdownRemark {
+                      html
+                  }
+              }
+              listImageFull {
+                  contentful_id
+                  gatsbyImageData(
+                      layout: CONSTRAINED
+                  )
+              }
+          }
       }
   }
 `
