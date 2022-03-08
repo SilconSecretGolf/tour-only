@@ -1,3 +1,4 @@
+import "../styles/style.scss"
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'

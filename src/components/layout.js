@@ -1,4 +1,3 @@
-import "../styles/style.scss"
 import React from 'react'
 
 import Seo from './seo'
@@ -15,7 +14,7 @@ class Template extends React.Component {
         <main>{children}</main>
         <Footer />
         <Helmet>
-          <script src="https://players.brightcove.net/6057949417001/oSZ08U60i_default/index.min.js"/>
+          <script type="text/javascript" src="//players.brightcove.net/6057949417001/oSZ08U60i_default/index.min.js"/>
         </Helmet>
       </>
     )

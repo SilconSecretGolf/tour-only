@@ -1,3 +1,4 @@
+import "../styles/style.scss"
 import React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'

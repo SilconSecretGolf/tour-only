@@ -20,7 +20,7 @@ export const GetChannelAsset = (channelAsset) => {
       item = <div className="ratio ratio-16x9">
         <video-js data-account="6057949417001" data-player="oSZ08U60i"
                   data-embed="default" controls="" data-video-id={channelAsset.videoId} data-playlist-id=""
-                  data-application-id="" className="vjs-fluid" />
+                  data-application-id="" class="vjs-fluid"/>
       </div>
       break;
 
