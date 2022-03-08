@@ -14,12 +14,10 @@ class RootIndex extends React.Component {
     const channels = channelLists[0].channels
 
     return (
-      <Container>
+      <div>
         <Navigation />
-        <Container className="mt-2">
-          <section className="videos">
-            <div className="row">
-              <Layout location={this.props.location}>
+        <Layout location={this.props.location}>
+        <Container className="mt-2 videos">
                 <Row>&nbsp;</Row>
                 <Container className="videos mt-2">
                   <Row>
@@ -28,19 +26,14 @@ class RootIndex extends React.Component {
                       <a href={channel.slug}><div className="ratio ratio-16x9">
                           <GatsbyImage alt={channel.title} image={getImage(channel.listImageFull)}/>
                       </div></a>
-                      <a href={channel.slug} className="link-dark"><p className="mt-3"><b>{ channel.title }</b> {channel.description && channel.description.childMarkdownRemark &&
-                          <div className="display-inline" dangerouslySetInnerHTML={{ __html: channel.description.childMarkdownRemark.html }}/>}
-                          </p></a>
+                      <a href={channel.slug} className="link-dark"><p className="mt-3"><b>{ channel.title }</b></p></a>
                       </Col>
                 })}
                   </Row>
                 </Container>
-
-              </Layout>
-            </div>
-          </section>
         </Container>
-      </Container>
+        </Layout>
+      </div>
     )
   }
 }

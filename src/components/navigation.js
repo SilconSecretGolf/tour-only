@@ -1,4 +1,5 @@
 import React from 'react'
+import {useChannelList} from '../hooks/use-channel-list'
 
 const Navigation = ({channel}) => {
   var mainStyle = {
@@ -7,33 +8,32 @@ const Navigation = ({channel}) => {
   var maskStyle = {}
   var navBody = <span>TOUR <span className={"mob_hidden"}>GOLF</span> WEEKLY
     <span className="desc">Exclusive content from inside the LPGA and PGA Tours</span></span>
+  var channelList = useChannelList()
 
-  if (false && channel !== undefined) {
+  if (channel) {
     navBody = ""
-    var header = channel.header
-    if (header.backgroundColor1 && header.backgroundColor2) {
+    if (channel.headerBackgroundImage) {
       mainStyle = {
-        background: `linear-gradient(90deg, ${header.backgroundColor1} 0%, ${header.backgroundColor2} 29%, ${header.backgroundColor2} 79%, ${header.backgroundColor1} 100%)`
-      }
-      if (header.backgroundImage && header.backgroundImage.file.url) {
-        maskStyle = {
-          maxWidth: "728px",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundImage: `url('${header.backgroundImage.file.url}')`
-        }
-      }
-    }
-    else if (header.backgroundImage && header.backgroundImage.file.url) {
-      mainStyle = {
-        backgroundSize: "contain",
+        backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundImage: `url("${header.backgroundImage.file.url}")`
+        backgroundImage: `url("${channel.headerBackgroundImage.file.url}")`
       }
     }
-    if (header.image) {
-      navBody = <img alt="channel logo" className="img-fluid mx-auto d-block nav-logo p-2" src={header.image.file.url} />
+    if (channel.headerImage) {
+      navBody = <img alt="channel logo" className="img-fluid mx-auto d-block nav-logo p-0" src={channel.headerImage.file.url} />
+    }
+  }
+  else {
+    if (channelList.headerForegroundImage) {
+      navBody = <img alt="channel logo" className="img-fluid mx-auto d-block nav-logo p-3" src={channelList.headerForegroundImage.file.url} />
+    }
+    if (channelList.headerBackgroundImage) {
+      mainStyle = {
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundImage: `url("${channelList.headerBackgroundImage.file.url}")`
+      }
+
     }
   }
   return <nav className="navbar p-0" style={mainStyle}>

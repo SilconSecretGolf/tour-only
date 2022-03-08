@@ -18,7 +18,8 @@
   font-size: 50px;
   text-align: center;
   line-height: 1.2;
-  margin-top: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .nav-mask a span.desc {
   font-size: 35px;
@@ -39,10 +40,6 @@ nav .title {
 }
 
 @media (min-width: 768px) {
-  nav {
-    background-color: black;
-  }
-
   nav .title {
     font-size: 2em;
   }
@@ -58,15 +55,6 @@ nav .title {
   .footer-title {
     font-size: 1.50rem;
   }
-}
-
-@media (max-width: 992px) {
-  .nav-mask a span.desc, .mob_hidden {display: none;}
-  .nav-mask a {color: #fff; text-shadow: -5px 3px 5px #111; font-size: 40px; margin-top:25px;}
-  .navbar {
-    background: #4b4f54!important;
-  }
-
 }
 
 footer {

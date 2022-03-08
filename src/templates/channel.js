@@ -17,7 +17,7 @@ class ChannelTemplate extends React.Component {
       <Layout location={this.props.location}>
         <Seo
           title={channel.title}
-          description={channel.description.childMarkdownRemark.excerpt}
+          description={channel.title}
           image={``}
         />
         <Navigation channel={channel}/>
@@ -57,6 +57,24 @@ export const channelFragment = graphql `
       featured
       listImageFull {
           contentful_id
+          gatsbyImageData(
+              layout: CONSTRAINED
+          )
+      }
+      headerImage {
+          contentful_id
+          file {
+              url
+          }
+          gatsbyImageData(
+              layout: CONSTRAINED
+          )
+      }
+      headerBackgroundImage {
+          contentful_id
+          file {
+              url
+          }
           gatsbyImageData(
               layout: CONSTRAINED
           )
