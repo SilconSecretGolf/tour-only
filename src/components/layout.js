@@ -5,6 +5,12 @@ import Footer from './footer'
 import { Helmet } from 'react-helmet'
 
 class Template extends React.Component {
+  componentDidMount() {
+    const script = document.createElement('script')
+    script.src = "//players.brightcove.net/6057949417001/oSZ08U60i_default/index.min.js"
+    document.body.appendChild(script)
+  }
+
   render() {
     const { children } = this.props
 
@@ -13,9 +19,6 @@ class Template extends React.Component {
         <Seo />
         <main>{children}</main>
         <Footer />
-        <Helmet>
-          <script type="text/javascript" src="//players.brightcove.net/6057949417001/oSZ08U60i_default/index.min.js"/>
-        </Helmet>
       </>
     )
   }
