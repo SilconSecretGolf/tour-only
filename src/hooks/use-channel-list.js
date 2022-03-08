@@ -26,6 +26,14 @@ export const useChannelList = () => {
                         placeholder: TRACED_SVG
                     )
                 }
+                footerForegroundImage {
+                    title
+                    file { url }
+                    gatsbyImageData(
+                        layout: CONSTRAINED
+                        placeholder: TRACED_SVG
+                    )
+                }
                 footerBackgroundImage {
                     title
                     file { url }

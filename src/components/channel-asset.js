@@ -6,12 +6,12 @@ export const GetChannelAsset = (channelAsset) => {
   var item
   switch (channelAsset.__typename) {
     case 'ContentfulImage':
-      item = <div className="ratio ratio-16x9">
+      item = <div className="ratio">
                 <GatsbyImage image={getImage(channelAsset.image)} alt={channelAsset.title}/>
       </div>
       break;
     case 'ContentfulPodcast':
-      item = <div className="ratio ratio-16x9">
+      item = <div className="ratio">
         <iframe title={`Spotify - ${channelAsset.title}`} src={`https://open.spotify.com/embed-podcast/show/${channelAsset.spotifyId}`} width="100%" height="232"
                 frameBorder="0" allowTransparency="true" allow="encrypted-media" />
       </div>
@@ -30,7 +30,7 @@ export const GetChannelAsset = (channelAsset) => {
   return <Col sm={{span: 12}} md={{span: 6}} className="mb-4">
     {item}
     <p className="mt-3"><b>{channelAsset.title}</b>
-      <div className="display-inline" dangerouslySetInnerHTML={{ __html: channelAsset.description.childMarkdownRemark.html }}/>
+      <div dangerouslySetInnerHTML={{ __html: channelAsset.description.childMarkdownRemark.html }}/>
     </p>
   </Col>
 

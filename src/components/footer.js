@@ -8,6 +8,10 @@ export default function Footer() {
   const channelList = useChannelList()
 
   var footerStyle = {}
+  var footerBody = ''
+  if (channelList.footerForegroundImage) {
+    footerBody = <img alt="channel logo" className="img-fluid mx-auto d-block" src={channelList.footerForegroundImage.file.url} />
+  }
   if (channelList.footerBackgroundImage) {
     footerStyle = {
       backgroundSize: "contain",
@@ -18,10 +22,8 @@ export default function Footer() {
 
   return <footer className="p-2" style={footerStyle}>
     <Container>
-      <Row>&nbsp;</Row>
-      <Row style={{ height: "1em" }}>&nbsp;</Row>
       <Row>
-        <Col sm={{span: 12}}>&nbsp;</Col>
+        <Col sm={{span: 12}}>{footerBody}</Col>
       </Row>
     </Container>
     </footer>
