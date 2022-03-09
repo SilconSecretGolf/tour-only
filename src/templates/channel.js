@@ -18,7 +18,6 @@ class ChannelTemplate extends React.Component {
     const channel = get(this.props, 'data.contentfulChannel')
 
     return (
-      <Router>
       <Layout location={this.props.location}>
         <Seo
           title={channel.title}
@@ -44,7 +43,6 @@ class ChannelTemplate extends React.Component {
           </Row>
         </Container>
       </Layout>
-      </Router>
     )
   }
 }

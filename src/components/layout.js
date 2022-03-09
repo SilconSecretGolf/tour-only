@@ -2,7 +2,6 @@ import React from 'react'
 
 import Seo from './seo'
 import Footer from './footer'
-import { Helmet } from 'react-helmet'
 
 class Template extends React.Component {
   componentDidMount() {

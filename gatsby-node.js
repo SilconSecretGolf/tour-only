@@ -6,8 +6,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Define a template for blog post
   const channelTemplate = path.resolve('./src/templates/channel.js')
 
-  const result = await graphql(`query allContentfulChannels
-      {
+  const result = await graphql(`query {
         allContentfulChannel {
           nodes {
             title
