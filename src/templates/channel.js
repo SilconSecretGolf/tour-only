@@ -1,7 +1,6 @@
 import "../styles/style.scss"
 import React from 'react'
 import { graphql } from 'gatsby'
-import { BrowserRouter as Router } from 'react-router-dom'
 
 import get from 'lodash/get'
 
