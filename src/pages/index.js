@@ -27,7 +27,6 @@ class RootIndex extends React.Component {
                       <a href={channel.slug}>
                           <GatsbyImage alt={channel.title} image={getImage(channel.listImageFull)}/>
                       </a>
-                      <a href={channel.slug} className="link-dark"><p className="mt-3"><b>{ channel.title }</b></p></a>
                       </Col>
                 })}
                   </Row>

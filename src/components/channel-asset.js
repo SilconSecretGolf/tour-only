@@ -1,7 +1,6 @@
 import React from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Col } from 'react-bootstrap'
-import { NavLink } from 'react-bootstrap'
 
 export const GetChannelAsset = (channelAsset) => {
   var item
@@ -28,9 +27,9 @@ export const GetChannelAsset = (channelAsset) => {
       </div>
       break
     case 'ContentfulChannel':
-      item = <div>
-          <GatsbyImage image={getImage(channelAsset.listImageFull)} alt={channelAsset.title}/>
-        </div>
+      item = <a href={"/" + channelAsset.slug}><div>
+        <GatsbyImage image={getImage(channelAsset.listImageFull)} alt={channelAsset.title}/>
+        </div></a>
       itemBody = <p className="mt-3"><b><a className="link-dark" href={"/" + channelAsset.slug}>{channelAsset.title}</a></b>
         {channelAsset.description && <div dangerouslySetInnerHTML={{ __html: channelAsset.description.childMarkdownRemark.html }}/>}
       </p>

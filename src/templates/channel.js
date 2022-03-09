@@ -1,12 +1,15 @@
 import "../styles/style.scss"
 import React from 'react'
 import { graphql } from 'gatsby'
+import { BrowserRouter as Router } from 'react-router-dom'
+
 import get from 'lodash/get'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Navigation from '../components/navigation'
 import { GetChannelAsset } from '../components/channel-asset'
+import BackButton from '../components/back-button'
 
 import { Row, Col, Container } from 'react-bootstrap'
 
@@ -15,6 +18,7 @@ class ChannelTemplate extends React.Component {
     const channel = get(this.props, 'data.contentfulChannel')
 
     return (
+      <Router>
       <Layout location={this.props.location}>
         <Seo
           title={channel.title}
@@ -25,25 +29,25 @@ class ChannelTemplate extends React.Component {
         <Container className="mt-2">
           <Row>
             <Col md={{span: 12}} className="mb-2">
-              <a href="/"><span className="fs-3 link-dark oi oi-arrow-thick-left">&nbsp;</span></a>
+              <BackButton/>
             </Col>
           </Row>
           <Row>
-          {channel.videos.map(asset => {
+          {channel.videos && channel.videos.map(asset => {
             return GetChannelAsset(asset)
           })}
           </Row>
           <Row>
             <Col md={{span: 12}} className="mb-2">
-              <a href="/"><span className="fs-3 link-dark oi oi-arrow-thick-left">&nbsp;</span></a>
+              <BackButton/>
             </Col>
           </Row>
         </Container>
       </Layout>
+      </Router>
     )
   }
 }
-
 export default ChannelTemplate
 
 export const channelFragment = graphql `

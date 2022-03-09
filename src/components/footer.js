@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { GatsbyImage } from 'gatsby-plugin-image'
 import {Container, Row, Col} from 'react-bootstrap'
 import { useChannelList} from '../hooks/use-channel-list'
 
@@ -14,7 +13,7 @@ export default function Footer() {
   }
   if (channelList.footerBackgroundImage) {
     footerStyle = {
-      backgroundSize: "contain",
+      backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundImage: `url("${channelList.footerBackgroundImage.file.url}")`
     }
