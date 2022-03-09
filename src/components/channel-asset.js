@@ -35,6 +35,15 @@ export const GetChannelAsset = (channelAsset) => {
       </p>
       break
 
+    case 'ContentfulDownload':
+      item = <a href={"/" + channelAsset.file.file.url}><div>
+        <GatsbyImage image={getImage(channelAsset.image)} alt={channelAsset.title}/>
+      </div></a>
+      itemBody = <p className="mt-3"><b><a className="link-dark" href={channelAsset.file.file.url}>{channelAsset.title}</a></b>
+        {channelAsset.description && <div dangerouslySetInnerHTML={{ __html: channelAsset.description.childMarkdownRemark.html }}/>}
+      </p>
+      break
+
     default:
       item = <div>Unknown type: {channelAsset.__typename}</div>
   }

@@ -131,6 +131,25 @@ export const channelFragment = graphql `
                   )
               }
           }
+          ... on ContentfulDownload {
+              title
+              description {
+                  childMarkdownRemark {
+                      html
+                  }
+              }
+              image {
+                  contentful_id
+                  gatsbyImageData(
+                      layout: CONSTRAINED
+                  )
+              }
+              file {
+                  file { url }
+                  
+              }
+              
+          }
       }
   }
 `
