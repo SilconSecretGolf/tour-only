@@ -9,7 +9,7 @@ export default function Footer() {
   var footerStyle = {}
   var footerBody = ''
   if (channelList.footerForegroundImage) {
-    footerBody = <img alt="channel logo" className="img-fluid mx-auto d-block" src={channelList.footerForegroundImage.file.url} />
+    footerBody = <img alt="channel logo" className="img-fluid mx-auto d-block p-2" src={channelList.footerForegroundImage.file.url} />
   }
   if (channelList.footerBackgroundImage) {
     footerStyle = {

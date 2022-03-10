@@ -18,15 +18,18 @@ class RootIndex extends React.Component {
       <div>
         <Navigation />
         <Layout location={this.props.location}>
-        <Container className="mt-2 videos">
+        <Container className="mt-2">
                 <Row>&nbsp;</Row>
-                <Container class="videos mt-2">
+                <Container class="mt-2">
                   <Row>
                   {channels.map((channel) => {
                     return <Col sm={12} md={6} className="mb-4">
                       <a href={channel.slug}>
                           <GatsbyImage alt={channel.title} image={getImage(channel.listImageFull)}/>
                       </a>
+                      <p className="mt-3"><b><a className="link-dark" href={"/" + channel.slug}>{channel.title}</a></b>
+                        {channel.description && <div dangerouslySetInnerHTML={{ __html: channel.description.childMarkdownRemark.html }}/>}
+                      </p>
                       </Col>
                 })}
                   </Row>
