@@ -36,10 +36,14 @@ export const GetChannelAsset = (channelAsset) => {
       break
 
     case 'ContentfulDownload':
-      item = <a href={"/" + channelAsset.file.file.url}><div>
+      var fileUrl = "#"
+      if (channelAsset.file) {
+        fileUrl = channelAsset.file.file.url
+      }
+      item = <a href={fileUrl}><div>
         <GatsbyImage image={getImage(channelAsset.image)} alt={channelAsset.title}/>
       </div></a>
-      itemBody = <p className="mt-3"><b><a className="link-dark" href={channelAsset.file.file.url}>{channelAsset.title}</a></b>
+      itemBody = <p className="mt-3"><b><a className="link-dark" href={fileUrl}>{channelAsset.title}</a></b>
         {channelAsset.description && <div dangerouslySetInnerHTML={{ __html: channelAsset.description.childMarkdownRemark.html }}/>}
       </p>
       break
