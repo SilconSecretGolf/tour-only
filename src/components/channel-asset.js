@@ -15,7 +15,7 @@ export const GetChannelAsset = (channelAsset) => {
       break
     case 'ContentfulPodcast':
       item = <div>
-        <iframe title={`Spotify - ${channelAsset.title}`} src={`https://open.spotify.com/embed-podcast/show/${channelAsset.spotifyId}`} width="100%" height="232"
+        <iframe title={`Spotify - ${channelAsset.title}`} src={channelAsset.spotifyId} width="100%" height="232"
                 frameBorder="0" allowTransparency="true" allow="encrypted-media" />
       </div>
       break
